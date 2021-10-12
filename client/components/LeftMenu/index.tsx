@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Button } from '@material-ui/core';
 import {
     WhatshotOutlined as FireIcon,
@@ -9,34 +10,27 @@ import {
 
 import styles from './LeftMenu.module.scss';
 
+const menu = [
+    { text: 'Лента', icon: <FireIcon />, path: '/' },
+    { text: 'Сообщения', icon: <MessageIcon />, path: '/messages' },
+    { text: 'Рейтинг TJ', icon: <TrendingIcon />, path: '/rating' },
+    { text: 'Подписки', icon: <ListIcon />, path: '/follows' },
+];
+
 export const LeftMenu: React.FC = () => {
     return (
         <div className={styles.menu}>
             <ul>
-                <li>
-                    <Button>
-                        <FireIcon />
-                        Лента
-                    </Button>
-                </li>
-                <li>
-                    <Button>
-                        <MessageIcon />
-                        Сообщения
-                    </Button>
-                </li>
-                <li>
-                    <Button>
-                        <TrendingIcon />
-                        Рейтинг TJ
-                    </Button>
-                </li>
-                <li>
-                    <Button>
-                        <ListIcon />
-                        Подписки
-                    </Button>
-                </li>
+                {menu.map(item => (
+                    <li key={item.path}>
+                        <Link href={item.path}>
+                            <Button>
+                                {item.icon}
+                                {item.text}
+                            </Button>
+                        </Link>
+                    </li>
+                ))}
             </ul>
         </div>
     );
