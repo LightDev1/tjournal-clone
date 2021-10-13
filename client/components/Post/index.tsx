@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import { IconButton, Paper, Typography } from '@material-ui/core';
 import {
@@ -9,14 +10,17 @@ import {
 } from '@material-ui/icons';
 
 import styles from './Post.module.scss';
+import { PostActions } from '../PostActions';
 
 export const Post: React.FC = () => {
     return (
         <Paper elevation={0} className="p-20" classes={{ root: styles.paper }}>
             <Typography variant="h5" className={styles.title}>
-                <a href="#">
-                    В Новой Зеландии уволили официального городского волшебника, потому что его образ «устарел»
-                </a>
+                <Link href="/news/test">
+                    <a>
+                        В Новой Зеландии уволили официального городского волшебника, потому что его образ «устарел»
+                    </a>
+                </Link>
             </Typography>
             <Typography className="mt-15 mb-15">Он занимал должность 23 года, развлекая туристов и иностранные делегации.</Typography>
             <Image
@@ -24,29 +28,7 @@ export const Post: React.FC = () => {
                 height={500}
                 width={600}
             />
-
-            <ul className={styles.actions}>
-                <li>
-                    <IconButton>
-                        <CommentsIcon />
-                    </IconButton>
-                </li>
-                <li>
-                    <IconButton>
-                        <RepostIcon />
-                    </IconButton>
-                </li>
-                <li>
-                    <IconButton>
-                        <FavoriteIcon />
-                    </IconButton>
-                </li>
-                <li>
-                    <IconButton>
-                        <ShareIcon />
-                    </IconButton>
-                </li>
-            </ul>
+            <PostActions />
         </Paper>
     );
 };
