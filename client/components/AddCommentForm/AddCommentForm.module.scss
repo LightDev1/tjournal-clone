@@ -1,0 +1,12 @@
+.fieldRoot {
+    padding: 17px !important;
+    background-color: #f7f7f7;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    border-radius: 10px;
+    cursor: pointer !important;
+    margin-top: 15px;
+
+    &::before, &::after {
+        display: none;
+    }
+}

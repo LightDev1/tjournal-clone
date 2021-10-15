@@ -9,7 +9,7 @@ import styles from './FullPost.module.scss'
 export const FullPost = () => {
     return (
         <Paper elevation={0} className={styles.paper} >
-            <div style={{ margin: '0 auto', width: 680 }}>
+            <div className="container">
                 <Typography variant="h4" className={styles.title}>В Новой Зеландии уволили официального городского волшебника, потому что его образ «устарел» </Typography>
                 <div>
                     <Typography>Он занимал должность 23 года, развлекая туристов и иностранные делегации.</Typography>
