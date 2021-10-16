@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { Button } from '@material-ui/core';
 import {
     WhatshotOutlined as FireIcon,
@@ -18,16 +19,19 @@ const menu = [
 ];
 
 export const LeftMenu: React.FC = () => {
+    const router = useRouter();
     return (
         <div className={styles.menu}>
             <ul>
                 {menu.map(item => (
                     <li key={item.path}>
                         <Link href={item.path}>
-                            <Button>
-                                {item.icon}
-                                {item.text}
-                            </Button>
+                            <a>
+                                <Button variant={router.asPath === item.path ? 'contained' : 'text'}>
+                                    {item.icon}
+                                    {item.text}
+                                </Button>
+                            </a>
                         </Link>
                     </li>
                 ))}
