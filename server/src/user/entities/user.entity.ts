@@ -18,5 +18,5 @@ export class UserEntity {
     createdAt: Date;
 
     @UpdateDateColumn({ type: 'timestamp' })
-    updateddAt: Date;
+    updatedAt: Date;
 }
