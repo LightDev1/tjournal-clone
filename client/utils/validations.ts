@@ -6,7 +6,7 @@ export const LoginFormSchema = yup.object({
 }).required();
 
 export const RegisterFormSchema = yup.object({
-    fullname: yup.string().required('Требуется имя и фамилие'),
+    fullName: yup.string().required('Требуется имя и фамилие'),
     email: yup.string().email('Невалидный email').required('Требуется email'),
     password: yup.string().min(6, 'Пароль должен быть не менее 6 символов').required('Требуется пароль'),
 }).required();
