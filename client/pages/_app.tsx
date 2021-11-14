@@ -9,9 +9,9 @@ import { Header } from '../components/Header';
 import '../styles/globals.scss';
 import 'macro-css';
 
-import { store } from '../redux/store';
+import { store, wrapper } from '../redux/store';
 
-function MyApp({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
@@ -20,16 +20,14 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Provider store={store}>
-          <Header />
-          <Component {...pageProps} />
-        </Provider>
+        <Header />
+        <Component {...pageProps} />
       </ThemeProvider>
     </>
   );
 }
-export default MyApp;
+export default wrapper.withRedux(App);
