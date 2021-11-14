@@ -1,6 +1,5 @@
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import { Provider } from 'react-redux';
 import { CssBaseline, ThemeProvider } from '@material-ui/core';
 
 import { theme } from '../theme';
@@ -9,7 +8,7 @@ import { Header } from '../components/Header';
 import '../styles/globals.scss';
 import 'macro-css';
 
-import { store, wrapper } from '../redux/store';
+import { wrapper } from '../redux/store';
 
 function App({ Component, pageProps }: AppProps) {
   return (
